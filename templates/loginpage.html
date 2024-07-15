@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Translator App</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.background{
+    background-color: #282c34;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
+
+.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color:#080434;
+        padding: 10px;
+        position: relative;
+      }
+      .navbar .title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 24px;
+      }
+      .navbar .links {
+        display: flex;
+        margin-left: auto;
+      }
+      .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-align: center;
+      }
+      .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+#logo h1{
+    padding-left: 20px;
+    padding-top: 7px;
+    text-shadow: turquoise 1px 0 8px;
+}
+
+.sign-up-form{
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%,-50%);
+  width: 350px;
+  height: 500px;
+  background-color: #282c34;
+  color: turquoise;
+  margin: 3% auto 0;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 10%;
+}
+
+.sign-up-form h1{
+  margin-top: 5px;
+}
+
+.input-box{
+  border-radius: 20px;
+  padding: 8px; 
+  margin: 10px 0;
+  margin-top: 13px;
+  width: 80%;
+  border: 1px solid turquoise;
+  outline: none;
+}
+
+button{
+  color: white;
+  width: 85%;
+  padding: 7px;
+  border-radius: 20px;
+  font-size: 15px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: white;
+  color: turquoise;
+}
+
+.sign-up{
+  background-color: turquoise;
+  margin-bottom: 12px;
+}
+
+.google-btn{
+  background-color: turquoise;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+hr{
+  margin: 10px auto;
+  width: 80%;
+}
+
+.or{
+  color: turquoise;
+  width: 40px;
+  margin: -19px auto 10px;
+}
+.bottom{
+    padding-top:-5%;
+}
+.img{
+  width: 70px;
+}
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color:#080434;
+        padding: 10px;
+        position: relative;
+      }
+      .navbar .title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 24px;
+      }
+      .navbar .links {
+        display: flex;
+        margin-left: auto;
+      }
+      .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-align: center;
+      }
+      .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      .content {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1500px;
+        background-color: #fff; /* Optional: to visually separate the halves */
+      }
+      .info-container {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px; /* Increased font size for info content */
+      }
+      .info-container h1 {
+        margin-top: 0;
+        font-size: 36px; /* Increased font size for heading */
+      }
+      .info-container p {
+        font-size: 20px; /* Increased font size for paragraph */
+      }
+      .logo {
+        max-height: 200px;
+        max-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="title">Text Translator</div>
+      <div class="links">
+        <a href="http://127.0.0.1:8000/mainpage.html">Home</a>
+        <a href="http://127.0.0.1:8000/loginpage.html">Login</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="logo-container">
+        {% load static %}
+        <img src="{% static 'images\logo.png' %}" alt="Logo" class="logo" />
+      </div>
+      <div class="info-container">
+        <div class="sign-up-form">
+            {% load static %}
+            <img class="img" src="{% static 'images\logo.png' %}">
+            <h1>SIGN IN</h1>
+            <form>
+                <input type="email" id="Mail" class="input-box" name="Mail" placeholder="Your Email">
+                <input type="password" id="Pass" class="input-box" name="Pass" placeholder="Your Password"><br>
+                <p><span><input type="checkbox"></span>Remember me</p><br><br>
+                <button type="button" id="signin-btn" class="sign-up" onclick="signin()">Sign in</button>
+                <hr>
+                <p class="or">OR</p>
+                <button type="button" class="google-btn"
+                    onclick="location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ec=GAlAFw&hl=en-GB&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-1475432963%3A1707069808329662&theme=glif'">Login
+                    with Google</button>
+                <p>Do you have an account? <a href="http://127.0.0.1:8000/sign_up.html">Sign up </a></p>
+            </form>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/user_data.js' %}"></script>
+    <script>
+    function signin() {
+        var email = document.getElementById('Mail').value;
+        var password = document.getElementById('Pass').value;
+        var user_data = JSON.parse(localStorage.getItem('user_data')) || {};
+
+        if (user_data.hasOwnProperty(email) && user_data[email] === password) {
+            alert('Login successful!');
+            window.location.href = 'http://127.0.0.1:8000/translator/';
+        } else {
+            alert('Login failed. Please check your credentials.');
+        }
+    }
+</script>
+
+    </script>
+  </body>
+</html>
+
+
+
+<!-- <script>
+    user_data = {
+        'navaneethnaren6@gmail.com': 'pass',
+        'user2@example.com': 'password2',
+        'user3@example.com': 'password3',
+    }
+
+
+    function signin() {
+        var email = document.getElementById('Mail').value;
+        var password = document.getElementById('Pass').value;
+
+        // Check if email exists in user_data and password matches
+        if (user_data.hasOwnProperty(email) && user_data[email] === password) {
+            alert('Login successful!');
+            // Redirect or perform any other action after successful login
+            window.location.href = 'http://127.0.0.1:8000/translator.html/';  // Replace with your desired redirect URL
+        } else {
+            alert('Login failed. Please check your credentials.');
+        }
+    };

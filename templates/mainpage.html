@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Translator App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color:#080434;
+        padding: 10px;
+        position: relative;
+      }
+      .navbar .title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 24px;
+      }
+      .navbar .links {
+        display: flex;
+        margin-left: auto;
+      }
+      .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        text-align: center;
+      }
+      .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      .content {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1500px;
+        background-color: #fff; /* Optional: to visually separate the halves */
+      }
+      .info-container {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px; /* Increased font size for info content */
+      }
+      .info-container h1 {
+        margin-top: 0;
+        font-size: 36px; /* Increased font size for heading */
+      }
+      .info-container p {
+        font-size: 20px; /* Increased font size for paragraph */
+      }
+      .logo {
+        max-height: 200px;
+        max-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="title">Text Translator</div>
+      <div class="links">
+        <a href="http://127.0.0.1:8000/mainpage.html">Home</a>
+        <a href="http://127.0.0.1:8000/loginpage.html">Login</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="logo-container">
+        {% load static %}
+        <img src="{% static 'images\logo.png' %}" alt="Logo" class="logo" />
+      </div>
+      <div class="info-container">
+        <div>
+          <h1>About the Translator App</h1>
+          <p>
+            Our app supports a wide range of languages, allowing you to
+            communicate seamlessly with people from all over the world. Simply
+            enter your text, choose your desired languages, and get
+            instant,accurate translations. We prioritize user-friendliness and
+            accuracy, making it the perfect tool for travelers, students, and
+            anyone who needs to bridge the language gap.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
